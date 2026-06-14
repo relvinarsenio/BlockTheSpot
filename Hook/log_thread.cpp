@@ -1,6 +1,6 @@
-#include "log_thread.h"
-
 #include "pch.h"
+
+#include "log_thread.h"
 
 constexpr size_t LOG_RING_SIZE    = 512; // number of messages
 constexpr size_t LOG_MSG_SIZE     = 256; // bytes per message

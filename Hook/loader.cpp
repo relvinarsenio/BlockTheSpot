@@ -1,5 +1,6 @@
-#include "loader.h"
+#include "pch.h"
 
+#include "loader.h"
 #include "IAT_hook.h"
 #include "cef_url_hook.h"
 #include "cef_zip_reader_hook.h"
@@ -8,7 +9,6 @@
 #include "kill_crashpad.h"
 #include "libcef_hook.h"
 #include "log_thread.h"
-#include "pch.h"
 
 #include <array>
 #pragma comment(lib, "version.lib")

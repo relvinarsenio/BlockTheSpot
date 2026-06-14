@@ -1,10 +1,10 @@
-#include "developer_mode.h"
+#include "pch.h"
 
+#include "developer_mode.h"
 #include "loader.h"
 #include "log_thread.h"
 #include "memory.h"
 #include "pattern.h"
-#include "pch.h"
 
 #include <array>
 

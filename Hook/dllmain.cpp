@@ -1,7 +1,8 @@
+#include "pch.h"
+
 // dllmain.cpp : Defines the entry point for the DLL application.
 #include "kill_crashpad.h"
 #include "log_thread.h"
-#include "pch.h"
 
 BOOL APIENTRY DllMain(HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReserved) {
     if (DLL_PROCESS_ATTACH == ul_reason_for_call) {

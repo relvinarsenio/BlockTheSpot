@@ -1,9 +1,9 @@
-#include "libcef_hook.h"
+#include "pch.h"
 
+#include "libcef_hook.h"
 #include "IAT_hook.h"
 #include "cef_url_hook.h"
 #include "cef_zip_reader_hook.h"
-#include "pch.h"
 
 static FARPROC WINAPI GetProcAddress_hook(HMODULE hModule, LPCSTR lpProcName) {
     if (!lpProcName || 0 == HIWORD(reinterpret_cast<std::uintptr_t>(lpProcName))) {

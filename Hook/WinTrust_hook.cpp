@@ -1,6 +1,6 @@
-#include "WinTrust_hook.h"
-
 #include "pch.h"
+
+#include "WinTrust_hook.h"
 
 // https://learn.microsoft.com/en-us/windows/win32/seccrypto/example-c-program--verifying-the-signature-of-a-pe-file
 LONG WINAPI WinVerifyTrust_hook(HWND hwnd, GUID* pgActionID, LPVOID pWVTData) {

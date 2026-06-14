@@ -1,7 +1,7 @@
-#include "kill_crashpad.h"
-
-#include "loader.h"
 #include "pch.h"
+
+#include "kill_crashpad.h"
+#include "loader.h"
 
 static inline bool is_block_crashpad() noexcept {
     const auto result = GetPrivateProfileIntW(L"LIBCEF", L"Block_crashpad", 0, CONFIG_FILEW);

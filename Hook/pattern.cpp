@@ -1,6 +1,6 @@
-#include "pattern.h"
-
 #include "pch.h"
+
+#include "pattern.h"
 
 #include <ranges>
 

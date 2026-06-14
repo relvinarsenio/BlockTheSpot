@@ -1,9 +1,9 @@
-#include "css_cosmetic.h"
+#include "pch.h"
 
+#include "css_cosmetic.h"
 #include "loader.h"
 #include "log_thread.h"
 #include "pattern.h"
-#include "pch.h"
 
 #include <array>
 #include <string_view>

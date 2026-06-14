@@ -1,12 +1,12 @@
-#include "cef_zip_reader_hook.h"
+#include "pch.h"
 
+#include "cef_zip_reader_hook.h"
 #include "IAT_hook.h"
 #include "css_cosmetic.h"
 #include "funct_pointer.h"
 #include "loader.h"
 #include "log_thread.h"
 #include "pattern.h"
-#include "pch.h"
 
 #include <array>
 #include <ranges>
