@@ -73,8 +73,8 @@ jobs:
 
       - name: Create Zip Archives
         run: |
-          zip -j blockthespot-x64.zip release-x64/*
-          zip -j blockthespot-x86.zip release-x86/*
+          zip -j blockthespot-x64.zip release-x64/* config.ini
+          zip -j blockthespot-x86.zip release-x86/* config.ini
 
       - name: Release
         uses: softprops/action-gh-release@v2
