@@ -1,38 +1,30 @@
 #pragma once
 #include "loader.h"
 
-struct DLL_section
-{
-	DWORD size;
-	BYTE* address;
+struct DLL_section {
+    std::uint32_t size;
+    std::uint8_t* address;
 };
 
-struct Modify
-{
-	uint8_t signature[SHARED_BUFFER_SIZE];
-	char mask[SHARED_BUFFER_SIZE];
-	UINT offset;
-	uint8_t value[SHARED_BUFFER_SIZE];
-	size_t patch_size;
+struct Modify {
+    std::uint8_t signature[SHARED_BUFFER_SIZE];
+    char mask[SHARED_BUFFER_SIZE];
+    std::uint32_t offset;
+    std::uint8_t value[SHARED_BUFFER_SIZE];
+    std::size_t patch_size;
 };
+
+#include <span>
+#include <string_view>
 
 // https://www.unknowncheats.me/forum/1064672-post23.html
-bool DataCompare(BYTE* pData, BYTE* bSig, char* szMask) noexcept;
-BYTE* FindPattern(BYTE* dwAddress, DWORD dwSize, BYTE* pbSig, char* szMask) noexcept;
+bool DataCompare(std::span<const std::uint8_t> data, std::span<const std::uint8_t> sig, std::string_view mask) noexcept;
+std::uint8_t* FindPattern(
+    std::span<const std::uint8_t> data, std::span<const std::uint8_t> sig, std::string_view mask) noexcept;
 
 bool get_text_section(HMODULE module, DLL_section* const dll_section) noexcept;
 
-size_t parse_signaure(
-	const char* src,
-	size_t src_len,
-	BYTE* out_bytes,
-	char* out_mask,
-	size_t out_cap
-) noexcept;
+std::size_t parse_signaure(
+    const char* src, std::size_t src_len, std::uint8_t* out_bytes, char* out_mask, std::size_t out_cap) noexcept;
 
-size_t parse_hex(
-	const char* src,
-	size_t src_len,
-	BYTE* out_bytes,
-	size_t out_cap
-) noexcept;
+std::size_t parse_hex(const char* src, std::size_t src_len, std::uint8_t* out_bytes, std::size_t out_cap) noexcept;
