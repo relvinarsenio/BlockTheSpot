@@ -2,6 +2,8 @@
 
 #include "log_thread.h"
 
+#include <array>
+
 constexpr size_t LOG_RING_SIZE    = 512; // number of messages
 constexpr size_t LOG_MSG_SIZE     = 256; // bytes per message
 constexpr Log_level MAX_LOG_LEVEL = Log_level::DEBUG;
@@ -196,10 +198,11 @@ void init_log_thread() noexcept {
     SYSTEMTIME systemTime;
     GetLocalTime(&systemTime);
 
-    _snprintf_s(shared_buffer, SHARED_BUFFER_SIZE, _TRUNCATE,
+    std::array<char, 256> temp_buffer {};
+    _snprintf_s(temp_buffer.data(), temp_buffer.size(), _TRUNCATE,
         "init_log_thread: initialized at %04d/%02d/%02d - %02d:%02d:%02d", systemTime.wYear, systemTime.wMonth,
         systemTime.wDay, systemTime.wHour, systemTime.wMinute, systemTime.wSecond);
-    log_info(shared_buffer);
+    log_info(temp_buffer.data());
 }
 
 void stop_log() noexcept {
